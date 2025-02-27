@@ -1,5 +1,6 @@
 package com.example.atividade.mvc.banco;
 
+import com.example.atividade.mvc.model.Aluno;
 import com.example.atividade.mvc.model.Curso;
 import com.example.atividade.mvc.model.Professor;
 
@@ -74,6 +75,20 @@ public class CursoBd {
         cursoBd.setNome(curso.getNome());
         return true;
     }
+    //inserir estudante
+    public boolean insertestudante(String cursoNome, Aluno aluno){
+        Curso cursoBd = cursos.stream()
+                .filter(f -> f.getNome().equals(cursoNome))
+                .findFirst()
+                .orElse(null);
 
+        if (cursoBd == null){
+            return false;
+        }
+
+        cursoBd.getAlunos().add(aluno);
+
+        return true;
+    }
 
 }

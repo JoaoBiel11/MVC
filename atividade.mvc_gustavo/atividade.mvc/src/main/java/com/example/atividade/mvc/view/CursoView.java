@@ -1,6 +1,7 @@
 package com.example.atividade.mvc.view;
 
 import com.example.atividade.mvc.controller.CursoController;
+import com.example.atividade.mvc.model.Aluno;
 import com.example.atividade.mvc.model.Curso;
 import com.example.atividade.mvc.model.Professor;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +41,7 @@ public class CursoView {
     public boolean insert (@RequestBody Curso curso) {
         return cursoController.insert(curso);
     }
-
+    //ATUALIZAR POR ID
     @PutMapping("/{id}")
     public Curso update(@RequestBody Curso curso, @PathVariable Long id) {
         return cursoController.update(id, curso);
@@ -49,6 +50,11 @@ public class CursoView {
     @DeleteMapping("/{id}")
     public boolean delete ( @PathVariable Long id){
         return cursoController.delete(id);
+    }
+
+    @PostMapping("/inserirestudante/{cursoNome}")
+    public boolean insertestudante(@PathVariable String cursoNome, @RequestBody Aluno aluno){
+        return cursoController.insertestudante(cursoNome, aluno);
     }
 
 }

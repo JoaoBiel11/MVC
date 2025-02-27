@@ -1,6 +1,7 @@
 package com.example.atividade.mvc.controller;
 
 import com.example.atividade.mvc.banco.CursoBd;
+import com.example.atividade.mvc.model.Aluno;
 import com.example.atividade.mvc.model.Curso;
 import com.example.atividade.mvc.model.Professor;
 
@@ -28,7 +29,10 @@ public class CursoController {
     public Curso getByName(String nome){
         return cursoRepository.getByName(nome);
     }
-
+    //INSERIR ESTUDANTE
+    public boolean insertestudante (String cursoNome, Aluno aluno){
+        return cursoRepository.insertestudante(cursoNome, aluno);
+    }
 
 
     public boolean insert(Curso curso){
