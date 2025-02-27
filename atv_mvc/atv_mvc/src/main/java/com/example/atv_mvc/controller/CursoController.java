@@ -3,6 +3,7 @@ package com.example.atv_mvc.controller;
 import com.example.atv_mvc.banco.CursoBd;
 import com.example.atv_mvc.model.Aluno;
 import com.example.atv_mvc.model.Curso;
+import com.example.atv_mvc.model.Professor;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class CursoController {
         return cursorepository.insertBanco(curso);
     }
 
-    public Curso update(int id, Curso curso) {
+    public Curso update(Long id, Curso curso) {
         boolean result = cursorepository.update(id, curso);
 
         if (result) {
@@ -40,6 +41,10 @@ public class CursoController {
 
     public boolean insertestudante (String cursoNome, Aluno aluno){
         return cursorepository.insertestudante(cursoNome, aluno);
+    }
+
+    public boolean attaluno (String cursoNome, Aluno aluno){
+        return cursorepository.attaluno(cursoNome, aluno);
     }
 }
 

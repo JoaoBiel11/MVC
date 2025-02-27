@@ -30,13 +30,13 @@ public class CursoView {
 }
 
 @PostMapping
-public boolean insertBanco(@RequestBody Curso curso) {
+    public boolean insertBanco(@RequestBody Curso curso) {
 
     return CursoController.insertBanco(curso);
 }
 
-@PutMapping ("/{id}")
-public Curso update(@RequestBody Curso curso, @PathVariable int id) {
+@PutMapping ("/att/{id}")
+public Curso update(@RequestBody Curso curso, @PathVariable Long id) {
     return CursoController.update(id, curso);
 }
 
@@ -48,6 +48,11 @@ public Curso update(@RequestBody Curso curso, @PathVariable int id) {
     @PostMapping("/inserirestudante/{cursoNome}")
     public boolean insertestudante(@PathVariable String cursoNome, @RequestBody Aluno aluno){
         return CursoController.insertestudante(cursoNome, aluno);
+    }
+
+    @PutMapping("/atualizaraluno/{cursoNome}")
+    public boolean attaluno(@PathVariable String cursoNome, @RequestBody Aluno aluno){
+        return CursoController.attaluno(cursoNome, aluno);
     }
 }
 

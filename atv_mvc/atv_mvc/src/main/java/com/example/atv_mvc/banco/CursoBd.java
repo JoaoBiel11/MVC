@@ -3,6 +3,7 @@ package com.example.atv_mvc.banco;
 import com.example.atv_mvc.controller.CursoController;
 import com.example.atv_mvc.model.Aluno;
 import com.example.atv_mvc.model.Curso;
+import com.example.atv_mvc.model.Professor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -57,7 +58,7 @@ public class CursoBd {
     }
 
     // atualiza o f com base no id
-    public boolean update(int id, Curso curso){
+    public boolean update(Long id, Curso curso){
         Curso cursoBd = cursos.stream()
                 .filter(f -> f.getIdcurso() == id)
                 .findFirst()
@@ -86,4 +87,24 @@ public class CursoBd {
 
         return true;
     }
+
+    public boolean attaluno(Long cursoId, Aluno alunoAntigo, Aluno alunoNovo) {
+        Curso cursoBd = cursos.stream()
+                .filter(c -> c.getIdcurso() == cursoId)
+                .findFirst()
+                .orElse(null);
+
+        if(alunoAntigo == null){
+            return false;
+        }
+        if (cursoBd == null){
+            return false;
+        }
+
+        alunoAntigo.setNome(alunoNovo.getNome());
+        alunoAntigo.setCpf(alunoNovo.getCpf());
+
+        return true;
+    }
+
 }
