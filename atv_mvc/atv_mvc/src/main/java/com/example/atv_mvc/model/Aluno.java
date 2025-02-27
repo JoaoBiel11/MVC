@@ -2,24 +2,24 @@ package com.example.atv_mvc.model;
 
 public class Aluno {
 
-    private Long id;
+    private Long idaluno;
 
     private String nome;
 
     private String cpf;
 
     public Aluno(Long id, String nome, String cpf) {
-        this.id = id;
+        this.idaluno = idaluno;
         this.nome = nome;
         this.cpf = cpf;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdaluno() {
+        return idaluno;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdaluno(Long id) {
+        this.idaluno = id;
     }
 
     public String getNome() {
